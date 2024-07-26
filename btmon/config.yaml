@@ -1,0 +1,46 @@
+name: "BTmon"
+description: "Service to upload Brultech power meter readings to emoncms"
+version: "1.0.13"
+slug: "btmon"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
+startup: system
+services:
+  - mqtt:want
+usb: true
+udev: true
+map:
+  - addon_config
+options:
+  debug: false
+  print: false
+  device_type: "ecm1240"
+  serial_port: "/dev/ttyUSB0"
+  serial_read: true
+  oem_out: true
+  oem_node: 0
+  mqtt_out: true
+  mqtt_host: "localhost"
+  mqtt_port: 1883
+  mqtt_clientid: "btmon"
+  mqtt_base_topic: "btmon/energy"
+schema:
+  debug: bool
+  print: bool
+  device_type: "list(ecm1220|ecm1240)"
+  serial_port: "device(subsystem=tty)"
+  serial_read: bool
+  oem_out: bool
+  oem_token: str
+  oem_url: str
+  oem_node: int
+  mqtt_out: bool
+  mqtt_host: str
+  mqtt_port: port
+  mqtt_clientid: str
+  mqtt_base_topic: str
+  mqtt_user: str
+  mqtt_passwd: password
