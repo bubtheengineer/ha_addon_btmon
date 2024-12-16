@@ -28,19 +28,22 @@ options:
   mqtt_clientid: "btmon"
   mqtt_base_topic: "btmon/energy"
 schema:
-  debug: bool
-  print: bool
-  device_type: "list(ecm1220|ecm1240)"
-  serial_port: "device(subsystem=tty)"
-  serial_read: bool
-  oem_out: bool
-  oem_token: str
-  oem_url: str
-  oem_node: int
-  mqtt_out: bool
-  mqtt_host: str
-  mqtt_port: port
-  mqtt_clientid: str
-  mqtt_base_topic: str
-  mqtt_user: str
-  mqtt_passwd: password
+  general:
+    debug: bool
+    print: bool
+    device_type: "list(ecm1220|ecm1240)"
+    serial_port: "device(subsystem=tty)"
+    serial_read: bool
+  emoncms:
+    oem_out: bool
+    oem_token: str
+    oem_url: str
+    oem_node: int
+  mqtt:
+    mqtt_out: bool
+    mqtt_host: str
+    mqtt_port: port
+    mqtt_clientid: str
+    mqtt_base_topic: str
+    mqtt_user: str
+    mqtt_passwd: password
